@@ -1,0 +1,11 @@
+server.port: 8761
+
+#STANDALONE SERVER
+# Now we are starting this Eureka project as a single standalone server that does not register as a client with other Eureka servers.
+eureka:
+  client:
+    register-with-eureka: false #If there are more than one instance Eureka running then Eureka instances they can register each other. we don't need that because we have one instance
+    fetch-registry: false #Tell Eureka client do not to fetch registry from other Eureka servers
+    service-url.defaultZone: http://localhost:8761/eureka #Now this configuration is needed to configure Eureka client to register with Eureka server.
+  instance:
+    prefer-ip-address: true #Tell Eureka to use IP address instead of a host name when microservice registers for that.
